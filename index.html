@@ -4,7 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>weisheng-portfolio</title>
+    <meta name="theme-color" content="#020617" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme =
+            saved === "light" || saved === "dark"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", theme === "light" ? "#f8fafc" : "#020617");
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+    <title>Wei Sheng Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Wong Wei Sheng, a Computer Science graduate in Singapore building web and mobile apps with React, TypeScript, Node.js and React Native."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wong Wei Sheng | Junior Software Engineer" />
+    <meta
+      property="og:description"
+      content="Computer Science graduate building web and mobile apps with React, TypeScript, Node.js and React Native."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root"></div>
